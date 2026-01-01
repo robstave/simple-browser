@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: simple-browser-backend
+    ports:
+      - "8765:8765"
+    volumes:
+      - ${ROOT_DIRECTORY:-./test-data}:/data:ro
+    environment:
+      - NODE_ENV=production
+      - PORT=8765
+      - ROOT_DIR=/data
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: simple-browser-frontend
+    ports:
+      - "5173:80"
+    environment:
+      - VITE_API_BASE_URL=http://localhost:8765
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+volumes:
+  data:

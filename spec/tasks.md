@@ -15,19 +15,19 @@
 
 **Purpose**: Initialize project with Docker, TypeScript, and shared types
 
-- [ ] T001 Create project directory structure (frontend/, backend/, shared/, docker/)
-- [ ] T002 [P] Initialize backend Node.js + TypeScript project in backend/
-- [ ] T003 [P] Initialize frontend Vite + React + TypeScript project in frontend/
-- [ ] T004 [P] Create shared types package in shared/ for contracts
-- [ ] T005 Create root docker-compose.yml for frontend + backend services
-- [ ] T006 [P] Create backend/Dockerfile with Node.js TypeScript build
-- [ ] T007 [P] Create frontend/Dockerfile with Vite production build
-- [ ] T008 [P] Configure TypeScript in backend/ with strict mode and path aliases
-- [ ] T009 [P] Configure TypeScript in frontend/ with React + strict mode
-- [ ] T010 [P] Setup ESLint and Prettier for both projects
-- [ ] T011 Add .dockerignore files to frontend/ and backend/
-- [ ] T012 Create .env.example for configuration (root directory path, ports)
-- [ ] T013 Update README.md with build/run instructions per constitution
+- [x] T001 Create project directory structure (frontend/, backend/, shared/, docker/)
+- [x] T002 [P] Initialize backend Node.js + TypeScript project in backend/
+- [x] T003 [P] Initialize frontend Vite + React + TypeScript project in frontend/
+- [x] T004 [P] Create shared types package in shared/ for contracts
+- [x] T005 Create root docker-compose.yml for frontend + backend services
+- [x] T006 [P] Create backend/Dockerfile with Node.js TypeScript build
+- [x] T007 [P] Create frontend/Dockerfile with Vite production build
+- [x] T008 [P] Configure TypeScript in backend/ with strict mode and path aliases
+- [x] T009 [P] Configure TypeScript in frontend/ with React + strict mode
+- [x] T010 [P] Setup ESLint and Prettier for both projects
+- [x] T011 Add .dockerignore files to frontend/ and backend/
+- [x] T012 Create .env.example for configuration (root directory path, ports)
+- [x] T013 Update README.md with build/run instructions per constitution
 
 **Constitution Check**:
 - ✅ Minimal surface: Vite (lean), Fastify (minimal), no extra frameworks

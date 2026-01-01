@@ -1,0 +1,19 @@
+# Root level gitignore
+
+# Environment
+.env
+.env.local
+
+# Test data
+test-data/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
