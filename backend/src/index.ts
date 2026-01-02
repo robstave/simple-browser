@@ -1,26 +1,18 @@
-import Fastify from 'fastify';
-import cors from '@fastify/cors';
+import { HealthCheckResponse } from '@simple-browser/shared';
+import { createServer } from './server';
 
-const PORT = 8765;
-const HOST = '0.0.0.0';
+const PORT = parseInt(process.env.PORT || '8765', 10);
+const HOST = process.env.HOST || '0.0.0.0';
 
-const server = Fastify({
-  logger: true,
-});
-
-// Enable CORS for frontend communication
-server.register(cors, {
-  origin: [
-    'http://localhost:5174',
-    'http://127.0.0.1:5174',
-    'http://192.168.86.28:5174'
-  ],
-  credentials: true,
-});
+const server = createServer();
 
 // Health check endpoint
-server.get('/api/health', async () => {
-  return { status: 'ok', message: 'simple-browser backend running' };
+server.get('/api/health', async (): Promise<HealthCheckResponse> => {
+  return { 
+    status: 'ok', 
+    message: 'simple-browser backend running',
+    timestamp: Date.now()
+  };
 });
 
 // Hello world endpoint

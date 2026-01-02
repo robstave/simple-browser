@@ -42,7 +42,7 @@
 
 **⚠️ CRITICAL**: No feature work can begin until this phase completes
 
-- [ ] T014 [P] Define shared types in shared/src/types.ts (DirectoryEntry, ImageFile, ApiResponse)
+- [x] T014 [P] Define shared types in shared/src/types.ts (DirectoryEntry, ImageFile, ApiResponse)
 - [ ] T015 [P] Implement path validation utility in backend/src/utils/path-validator.ts (prevent traversal)
 - [ ] T016 Setup Fastify server in backend/src/server.ts with CORS and error handling
 - [ ] T017 Create environment config loader in backend/src/config.ts (read ROOT_DIR from env)

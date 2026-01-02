@@ -9,12 +9,21 @@ services:
     ports:
       - "8765:8765"
     volumes:
+      # Mount the ROOT_DIRECTORY from host to /data in container (read-only)
       - ${ROOT_DIRECTORY:-./test-data}:/data:ro
     environment:
       - NODE_ENV=production
       - PORT=8765
-      - ROOT_DIR=/data
+      - HOST=0.0.0.0
+      - ROOT_DIRECTORY=/data
+      - LOG_LEVEL=info
     restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "node", "-e", "require('http').get('http://localhost:8765/api/health', (r) => process.exit(r.statusCode === 200 ? 0 : 1))"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
 
   frontend:
     build:

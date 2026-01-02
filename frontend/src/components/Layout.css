@@ -1,0 +1,127 @@
+/* Layout Styles */
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.layout-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background-color: #1a1a1a;
+  border-bottom: 1px solid #333;
+  flex-shrink: 0;
+}
+
+.layout-header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.layout-header-controls {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.layout-main {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Split Pane Styles */
+
+.split-pane {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.split-pane-left {
+  width: 300px;
+  min-width: 200px;
+  max-width: 500px;
+  background-color: #1e1e1e;
+  border-right: 1px solid #333;
+  overflow: auto;
+  flex-shrink: 0;
+}
+
+.split-pane-divider {
+  width: 4px;
+  background-color: #333;
+  cursor: col-resize;
+  flex-shrink: 0;
+  transition: background-color 0.2s;
+}
+
+.split-pane-divider:hover {
+  background-color: #555;
+}
+
+.split-pane-right {
+  flex: 1;
+  background-color: #242424;
+  overflow: auto;
+}
+
+/* Panel Styles */
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.panel-header {
+  padding: 0.75rem 1rem;
+  background-color: #1a1a1a;
+  border-bottom: 1px solid #333;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #888;
+  flex-shrink: 0;
+}
+
+.panel-content {
+  flex: 1;
+  overflow: auto;
+  padding: 1rem;
+}
+
+/* Responsive adjustments */
+
+@media (max-width: 768px) {
+  .split-pane {
+    flex-direction: column;
+  }
+
+  .split-pane-left {
+    width: 100%;
+    max-width: none;
+    height: 40%;
+    border-right: none;
+    border-bottom: 1px solid #333;
+  }
+
+  .split-pane-divider {
+    width: 100%;
+    height: 4px;
+    cursor: row-resize;
+  }
+
+  .split-pane-right {
+    height: 60%;
+  }
+}

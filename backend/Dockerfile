@@ -22,7 +22,7 @@ WORKDIR /app
 
 # Copy package files and install production dependencies only
 COPY package*.json ./
-RUN npm ci --only=production
+RUN npm ci --only=production && npm install -g tsconfig-paths
 
 # Copy built files from builder
 COPY --from=builder /app/dist ./dist
@@ -35,4 +35,4 @@ USER nodejs
 
 EXPOSE 8765
 
-CMD ["node", "dist/index.js"]
+CMD ["node", "-r", "tsconfig-paths/register", "dist/index.js"]
