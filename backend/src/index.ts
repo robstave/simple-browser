@@ -1,10 +1,18 @@
 import { HealthCheckResponse } from '@simple-browser/shared';
 import { createServer } from './server';
+import { registerDirectoryRoutes } from './routes/directories';
+import { getConfig } from './config';
 
-const PORT = parseInt(process.env.PORT || '8765', 10);
-const HOST = process.env.HOST || '0.0.0.0';
+// Load and validate configuration
+const config = getConfig();
+
+const PORT = config.port;
+const HOST = config.host;
 
 const server = createServer();
+
+// Register routes
+registerDirectoryRoutes(server);
 
 // Health check endpoint
 server.get('/api/health', async (): Promise<HealthCheckResponse> => {
@@ -15,13 +23,11 @@ server.get('/api/health', async (): Promise<HealthCheckResponse> => {
   };
 });
 
-// Hello world endpoint
-server.get('/api/hello', async () => {
-  return { message: 'Hello from simple-browser!' };
-});
-
 const start = async () => {
   try {
+    server.log.info(`Root directory: ${config.rootDirectory}`);
+    server.log.info(`Allowed image extensions: ${config.allowedImageExtensions.join(', ')}`);
+    
     await server.listen({ port: PORT, host: HOST });
     console.log(`Backend server listening on ${HOST}:${PORT}`);
   } catch (err) {

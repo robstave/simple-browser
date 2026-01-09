@@ -127,7 +127,8 @@ export const api = {
    */
   getDirectories: async (path: string = '') => {
     const encodedPath = encodeURIComponent(path);
-    return fetchJson<unknown>(`/api/directories/${encodedPath}`);
+    const endpoint = path ? `/api/directories/${encodedPath}` : '/api/directories';
+    return fetchJson<{ path: string; directories: Array<{ name: string; path: string; isDirectory: boolean }> }>(endpoint);
   },
 
   /**

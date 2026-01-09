@@ -67,21 +67,21 @@
 
 ### Tests for User Story 1 (required) ⚠️
 
-- [ ] T026 [P] [US1] Integration test: GET /api/directories returns valid tree structure in backend/tests/directories.test.ts
-- [ ] T027 [P] [US1] Unit test: path validator rejects traversal attempts in backend/tests/path-validator.test.ts
+- [x] T026 [P] [US1] Integration test: GET /api/directories returns valid tree structure in backend/tests/directories.test.ts
+- [x] T027 [P] [US1] Unit test: path validator rejects traversal attempts in backend/tests/path-validator.test.ts
 - [ ] T028 [P] [US1] Component test: DirectoryTree renders and handles expand/collapse in frontend/tests/DirectoryTree.test.tsx
 
 ### Implementation for User Story 1
 
-- [ ] T029 [P] [US1] Implement GET /api/directories/:path endpoint in backend/src/routes/directories.ts
-- [ ] T030 [US1] Create directory scanning service in backend/src/services/directory-service.ts (fs readdir + stat)
-- [ ] T031 [P] [US1] Create DirectoryTree component in frontend/src/components/DirectoryTree.tsx
-- [ ] T032 [P] [US1] Create TreeNode component in frontend/src/components/TreeNode.tsx (expandable item)
-- [ ] T033 [US1] Implement lazy loading logic in DirectoryTree (fetch children on expand)
-- [ ] T034 [US1] Add keyboard navigation (arrow keys, enter to expand) to TreeNode
-- [ ] T035 [US1] Style DirectoryTree with visible focus states and indentation
-- [ ] T036 [US1] Add ARIA attributes (role="tree", aria-expanded) to tree components
-- [ ] T037 [US1] Integrate DirectoryTree into main layout left pane
+- [x] T029 [P] [US1] Implement GET /api/directories/:path endpoint in backend/src/routes/directories.ts
+- [x] T030 [US1] Create directory scanning service in backend/src/services/directory-service.ts (fs readdir + stat)
+- [x] T031 [P] [US1] Create DirectoryTree component in frontend/src/components/DirectoryTree.tsx
+- [x] T032 [P] [US1] Create TreeNode component in frontend/src/components/TreeNode.tsx (expandable item)
+- [x] T033 [US1] Implement lazy loading logic in DirectoryTree (fetch children on expand)
+- [x] T034 [US1] Add keyboard navigation (arrow keys, enter to expand) to TreeNode
+- [x] T035 [US1] Style DirectoryTree with visible focus states and indentation
+- [x] T036 [US1] Add ARIA attributes (role="tree", aria-expanded) to tree components
+- [x] T037 [US1] Integrate DirectoryTree into main layout left pane
 
 **Checkpoint**: Directory tree renders, expands lazily, and supports keyboard navigation
 

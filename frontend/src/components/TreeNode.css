@@ -1,0 +1,81 @@
+/* TreeNode.css */
+
+.tree-node {
+  user-select: none;
+}
+
+.tree-node-content {
+  display: flex;
+  align-items: center;
+  padding: 0.4rem 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.15s;
+  outline: none;
+}
+
+.tree-node-content:hover {
+  background-color: #2a2a2a;
+}
+
+.tree-node-content:focus {
+  background-color: #2a2a2a;
+  box-shadow: inset 2px 0 0 #3498db;
+}
+
+.tree-node-content:focus-visible {
+  outline: 2px solid #3498db;
+  outline-offset: -2px;
+}
+
+.tree-node-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  margin-right: 0.5rem;
+  font-size: 0.7rem;
+  color: #888;
+  flex-shrink: 0;
+}
+
+.folder-icon {
+  font-size: 1rem;
+}
+
+.tree-node-label {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tree-node-children {
+  /* Children are indented via paddingLeft on tree-node-content */
+}
+
+.tree-node-error {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.8rem;
+  color: #e74c3c;
+  font-style: italic;
+}
+
+/* Active/selected state */
+.tree-node-content[aria-selected="true"] {
+  background-color: #34495e;
+  font-weight: 600;
+}
+
+/* Loading state animation */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.tree-node-content:has(.tree-node-icon:contains('⋯')) {
+  animation: pulse 1.5s ease-in-out infinite;
+}

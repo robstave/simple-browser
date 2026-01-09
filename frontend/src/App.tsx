@@ -1,5 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Layout, SplitPane, Panel } from './components/Layout';
+import { DirectoryTree } from './components/DirectoryTree';
+import { useState } from 'react';
 import './App.css';
 
 function App() {
@@ -13,17 +15,23 @@ function App() {
 }
 
 function HomePage() {
+  const [selectedPath, setSelectedPath] = useState<string>('');
+
   return (
     <Layout>
       <SplitPane
         left={
           <Panel title="Directories">
-            <p>Directory tree will appear here</p>
+            <DirectoryTree onDirectorySelect={setSelectedPath} />
           </Panel>
         }
         right={
           <Panel title="Images">
-            <p>Image thumbnails will appear here</p>
+            {selectedPath ? (
+              <p>Selected: {selectedPath}</p>
+            ) : (
+              <p>Select a directory to view images</p>
+            )}
           </Panel>
         }
       />
