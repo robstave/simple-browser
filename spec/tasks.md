@@ -43,17 +43,17 @@
 **⚠️ CRITICAL**: No feature work can begin until this phase completes
 
 - [x] T014 [P] Define shared types in shared/src/types.ts (DirectoryEntry, ImageFile, ApiResponse)
-- [ ] T015 [P] Implement path validation utility in backend/src/utils/path-validator.ts (prevent traversal)
-- [ ] T016 Setup Fastify server in backend/src/server.ts with CORS and error handling
-- [ ] T017 Create environment config loader in backend/src/config.ts (read ROOT_DIR from env)
-- [ ] T018 [P] Add helmet middleware for security headers in backend/
-- [ ] T019 [P] Setup backend logging infrastructure (pino or similar)
-- [ ] T020 [P] Create frontend API client in frontend/src/services/api.ts (typed fetch wrapper)
-- [ ] T021 [P] Setup React Router in frontend/src/App.tsx (single route for now)
-- [ ] T022 [P] Create base layout components in frontend/src/components/Layout.tsx
-- [ ] T023 Add docker-compose volume mount for test directory
-- [ ] T024 Create sample test directory structure for development
-- [ ] T025 Verify Docker build and startup scripts work end-to-end
+- [x] T015 [P] Implement path validation utility in backend/src/utils/path-validator.ts (prevent traversal)
+- [x] T016 Setup Fastify server in backend/src/server.ts with CORS and error handling
+- [x] T017 Create environment config loader in backend/src/config.ts (read ROOT_DIR from env)
+- [x] T018 [P] Add helmet middleware for security headers in backend/
+- [x] T019 [P] Setup backend logging infrastructure (pino or similar)
+- [x] T020 [P] Create frontend API client in frontend/src/services/api.ts (typed fetch wrapper)
+- [x] T021 [P] Setup React Router in frontend/src/App.tsx (single route for now)
+- [x] T022 [P] Create base layout components in frontend/src/components/Layout.tsx
+- [x] T023 Add docker-compose volume mount for test directory
+- [x] T024 Create sample test directory structure for development
+- [x] T025 Verify Docker build and startup scripts work end-to-end
 
 **Checkpoint**: Foundation ready - services start, communicate, and enforce read-only safety
 

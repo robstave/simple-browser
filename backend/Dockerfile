@@ -2,15 +2,22 @@ FROM node:20-alpine AS builder
 
 WORKDIR /app
 
-# Copy package files
-COPY package*.json ./
-COPY tsconfig.json ./
+# Copy shared types first
+COPY shared/package*.json ./shared/
+COPY shared/tsconfig.json ./shared/
+COPY shared/src ./shared/src
+
+# Copy backend package files
+COPY backend/package*.json ./backend/
+COPY backend/tsconfig.json ./backend/
+
+WORKDIR /app/backend
 
 # Install dependencies
 RUN npm ci
 
-# Copy source
-COPY src ./src
+# Copy backend source
+COPY backend/src ./src
 
 # Build
 RUN npm run build
@@ -20,12 +27,20 @@ FROM node:20-alpine
 
 WORKDIR /app
 
-# Copy package files and install production dependencies only
-COPY package*.json ./
-RUN npm ci --only=production && npm install -g tsconfig-paths
+# Copy shared types
+COPY --from=builder /app/shared ./shared
 
-# Copy built files from builder
-COPY --from=builder /app/dist ./dist
+# Copy backend package files
+COPY backend/package*.json ./backend/
+COPY backend/tsconfig.json ./backend/
+
+WORKDIR /app/backend
+
+# Install production dependencies INCLUDING tsconfig-paths
+RUN npm ci --only=production && npm install tsconfig-paths
+
+# Copy built files from builder  
+COPY --from=builder /app/backend/dist ./dist
 
 # Create non-root user
 RUN addgroup -g 1001 -S nodejs && \
@@ -35,4 +50,4 @@ USER nodejs
 
 EXPOSE 8765
 
-CMD ["node", "-r", "tsconfig-paths/register", "dist/index.js"]
+CMD ["node", "-r", "tsconfig-paths/register", "dist/backend/src/index.js"]
