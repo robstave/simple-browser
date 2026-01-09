@@ -95,24 +95,24 @@
 
 ### Tests for User Story 2 (required) ⚠️
 
-- [ ] T038 [P] [US2] Integration test: GET /api/images/:path returns image list in backend/tests/images.test.ts
-- [ ] T039 [P] [US2] Integration test: GET /api/image-content/:path streams image in backend/tests/image-content.test.ts
+- [x] T038 [P] [US2] Integration test: GET /api/images/:path returns image list in backend/tests/images.test.ts
+- [x] T039 [P] [US2] Integration test: GET /api/image-content/:path streams image in backend/tests/image-content.test.ts
 - [ ] T040 [P] [US2] Component test: ThumbnailGrid renders images with correct density in frontend/tests/ThumbnailGrid.test.tsx
 
 ### Implementation for User Story 2
 
-- [ ] T041 [P] [US2] Implement GET /api/images/:path endpoint in backend/src/routes/images.ts (filter image extensions)
-- [ ] T042 [P] [US2] Implement GET /api/image-content/:path endpoint in backend/src/routes/image-content.ts (stream file)
-- [ ] T043 [US2] Create image filtering utility in backend/src/utils/image-filter.ts (.jpg, .png, .gif, .webp)
-- [ ] T044 [P] [US2] Create ThumbnailGrid component in frontend/src/components/ThumbnailGrid.tsx
-- [ ] T045 [P] [US2] Create Thumbnail component in frontend/src/components/Thumbnail.tsx (lazy load image)
-- [ ] T046 [P] [US2] Create density selector in frontend/src/components/DensitySelector.tsx (3/5/7 per row)
-- [ ] T047 [US2] Add state management for selected directory and thumbnail density in frontend/src/App.tsx
-- [ ] T048 [US2] Implement thumbnail click handler (prepare for modal in next story)
-- [ ] T049 [US2] Add keyboard navigation (tab, arrow keys) to thumbnail grid
-- [ ] T050 [US2] Style thumbnails with visible focus rings and responsive grid
-- [ ] T051 [US2] Add ARIA labels (role="img", alt text) to thumbnails
-- [ ] T052 [US2] Connect DirectoryTree selection to ThumbnailGrid image loading
+- [x] T041 [P] [US2] Implement GET /api/images/:path endpoint in backend/src/routes/images.ts (filter image extensions)
+- [x] T042 [P] [US2] Implement GET /api/image-content/:path endpoint in backend/src/routes/image-content.ts (stream file)
+- [x] T043 [US2] Create image filtering utility in backend/src/utils/image-filter.ts (.jpg, .png, .gif, .webp)
+- [x] T044 [P] [US2] Create ThumbnailGrid component in frontend/src/components/ThumbnailGrid.tsx
+- [x] T045 [P] [US2] Create Thumbnail component in frontend/src/components/Thumbnail.tsx (lazy load image)
+- [x] T046 [P] [US2] Create density selector in frontend/src/components/DensitySelector.tsx (3/5/7 per row)
+- [x] T047 [US2] Add state management for selected directory and thumbnail density in frontend/src/App.tsx
+- [x] T048 [US2] Implement thumbnail click handler (prepare for modal in next story)
+- [x] T049 [US2] Add keyboard navigation (tab, arrow keys) to thumbnail grid
+- [x] T050 [US2] Style thumbnails with visible focus rings and responsive grid
+- [x] T051 [US2] Add ARIA labels (role="img", alt text) to thumbnails
+- [x] T052 [US2] Connect DirectoryTree selection to ThumbnailGrid image loading
 
 **Checkpoint**: Clicking directory shows image thumbnails; density selector changes layout
 

@@ -1,6 +1,8 @@
 import { HealthCheckResponse } from '@simple-browser/shared';
 import { createServer } from './server';
 import { registerDirectoryRoutes } from './routes/directories';
+import { registerImageRoutes } from './routes/images';
+import { registerImageContentRoutes } from './routes/image-content';
 import { getConfig } from './config';
 
 // Load and validate configuration
@@ -13,6 +15,8 @@ const server = createServer();
 
 // Register routes
 registerDirectoryRoutes(server);
+registerImageRoutes(server);
+registerImageContentRoutes(server);
 
 // Health check endpoint
 server.get('/api/health', async (): Promise<HealthCheckResponse> => {

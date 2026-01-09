@@ -3,6 +3,8 @@
  * Provides type-safe fetch wrappers and error handling
  */
 
+import type { DirectoryEntry, ImageFile } from '@simple-browser/shared';
+
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8765';
 
 /**
@@ -128,7 +130,7 @@ export const api = {
   getDirectories: async (path: string = '') => {
     const encodedPath = encodeURIComponent(path);
     const endpoint = path ? `/api/directories/${encodedPath}` : '/api/directories';
-    return fetchJson<{ path: string; directories: Array<{ name: string; path: string; isDirectory: boolean }> }>(endpoint);
+    return fetchJson<{ path: string; directories: DirectoryEntry[] }>(endpoint);
   },
 
   /**
@@ -137,7 +139,8 @@ export const api = {
    */
   getImages: async (path: string = '') => {
     const encodedPath = encodeURIComponent(path);
-    return fetchJson<unknown>(`/api/images/${encodedPath}`);
+    const endpoint = path ? `/api/images/${encodedPath}` : '/api/images';
+    return fetchJson<{ path: string; images: ImageFile[] }>(endpoint);
   },
 
   /**

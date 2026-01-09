@@ -1,0 +1,154 @@
+.thumbnail-grid-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+.thumbnail-grid-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  border-bottom: 1px solid #e0e0e0;
+  background-color: white;
+  flex-shrink: 0;
+}
+
+.thumbnail-grid-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+  min-width: 0;
+}
+
+.thumbnail-grid-path {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.thumbnail-grid-count {
+  font-size: 12px;
+  color: #666;
+}
+
+.thumbnail-grid {
+  display: grid;
+  gap: 16px;
+  padding: 16px;
+  overflow-y: auto;
+  flex: 1;
+  align-content: start;
+}
+
+/* Empty state */
+.thumbnail-grid-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 12px;
+  color: #999;
+}
+
+.thumbnail-grid-empty-icon {
+  font-size: 64px;
+}
+
+.thumbnail-grid-empty-text {
+  font-size: 16px;
+  color: #666;
+}
+
+/* Loading state */
+.thumbnail-grid-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 16px;
+}
+
+.thumbnail-grid-spinner {
+  width: 48px;
+  height: 48px;
+  border: 4px solid #e0e0e0;
+  border-top-color: #0078d4;
+  border-radius: 50%;
+  animation: grid-spin 0.8s linear infinite;
+}
+
+@keyframes grid-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.thumbnail-grid-loading-text {
+  font-size: 14px;
+  color: #666;
+}
+
+/* Error state */
+.thumbnail-grid-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 16px;
+  color: #a94442;
+  padding: 24px;
+}
+
+.thumbnail-grid-error-icon {
+  font-size: 64px;
+}
+
+.thumbnail-grid-error-text {
+  font-size: 16px;
+  text-align: center;
+}
+
+.thumbnail-grid-retry-button {
+  padding: 8px 16px;
+  border: 1px solid #0078d4;
+  background-color: #0078d4;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.thumbnail-grid-retry-button:hover {
+  background-color: #005a9e;
+  border-color: #005a9e;
+}
+
+.thumbnail-grid-retry-button:focus {
+  outline: 2px solid #0078d4;
+  outline-offset: 2px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .thumbnail-grid {
+    gap: 12px;
+    padding: 12px;
+  }
+  
+  .thumbnail-grid-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+}
